@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+<classPathEntry location="D:\1025\Test1\src\main\resources\mybatis-generator\mysql-connector-java-5.1.25.jar" />  
+    
+    <context id="generatorTables" targetRuntime="MyBatis3">
+    	
+    	  <!-- commentGenerator 去除自动生成的注释 -->  
+        <commentGenerator>  
+            <property name="suppressAllComments" value="true" />  
+            <property name="suppressDate" value="true" />  
+        </commentGenerator> 
+        <!--数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"
+            userId="root" password="123456" />
+             <!-- javaModelGenerator是模型的生成信息，这里将指定这些Java model类的生成路径； -->  
+        <javaModelGenerator targetPackage="com.cn.ptj.model"
+            targetProject="src/main/java" />
+            
+         <!-- sqlMapGenerator是mybatis 的sqlMapper XML文件的生成信息，包括生成路径等； 先生成xml，在生成java -->
+        <sqlMapGenerator targetPackage="com.cn.ptj.mapping"
+            targetProject="src/main/java" />
+       <!-- javaClientGenerator是应用接口的生成信息； -->  
+        <javaClientGenerator targetPackage="com.cn.ptj.dao"
+            targetProject="src/main/java" type="XMLMAPPER" />
+         <!-- table是用户指定的被生成相关信息的表，它必须在指定的jdbc连接中已经被建立。?是否可以多个 -->   
+           <!--  <table tableName="student" domainObjectName="student" 
+            enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table> -->
+         <table tableName="teacher" domainObjectName="teacher"   
+            enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"   
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>  
+       
+    </context>
+</generatorConfiguration>
